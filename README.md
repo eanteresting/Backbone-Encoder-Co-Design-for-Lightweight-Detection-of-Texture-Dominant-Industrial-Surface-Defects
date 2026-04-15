@@ -58,7 +58,7 @@ conda activate [your project name]
 conda install pytorch torchvision pytorch-cuda=12.1
 
 # Install dependencies
-1. Obtain and deploy DINOv3 from the official source.
+1. Deploy the pre-trained model of dinoV3 from the official channel.
 2. Install the required dependencies during runtime.
 
 ## Data Preparation
