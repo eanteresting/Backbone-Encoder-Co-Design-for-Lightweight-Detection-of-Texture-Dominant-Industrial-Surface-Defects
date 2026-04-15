@@ -158,6 +158,18 @@ python train.py --config configs/std_unidetr.yaml
 | UniDETR         | 3.6M   | 6.8G  | 26.2     | 56.0     |
 | **STD-UniDETR** | 5.5M   | 7.6G  | **29.7** | **60.9** |
 
+## 📊 Generalization on NEU-DET
+
+To further validate the generalization ability of STD-UniDETR, we conduct experiments on the **NEU-DET dataset**, a widely used benchmark for surface defect classification and detection.
+
+### Results on NEU-DET
+
+| Model            | Params | FLOPs | AP50–95 | AP50 |
+|------------------|--------|-------|--------|------|
+| UniDETR          | 3.6M   | 6.8G  | 45.2   | 76.6 |
+| **STD-UniDETR**  | 5.5M   | 7.6G  | **50.9** | **82.2** |
+
+
 
 ## 📌 Notes
 
