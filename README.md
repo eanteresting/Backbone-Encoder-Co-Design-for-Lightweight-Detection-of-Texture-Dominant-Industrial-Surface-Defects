@@ -76,6 +76,7 @@ conda install pytorch torchvision pytorch-cuda=12.1
 ## Project Structure
 ```
 /project_root
+├── experimental_results/  # Screenshot of experimental results
 ├── Baseline/              # Baseline (UniDETR)
 ├── modules/               # Core modules (AMS-Stem, PWConv, BSA, MSAM)
 ```
