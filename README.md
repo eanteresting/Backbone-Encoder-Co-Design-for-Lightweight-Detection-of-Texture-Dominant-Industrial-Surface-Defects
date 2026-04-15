@@ -76,14 +76,14 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 ---
 
 ## Project Structure
-
+```
 /project_root
 ├── models/                # Model architecture (STD-UniDETR)
 ├── modules/               # Core modules (AMS-Stem, PWConv, BSA, MSAM)
 ├── configs/               # Training configuration files
 ├── train.py               # Training script
 └── requirements.txt
-
+```
 
 ---
 
