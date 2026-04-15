@@ -107,7 +107,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 
 **Mathematical Formulation:**
 
-Y = w0 · Y_base + Σ wk · Y_wave(k)
+'Y = w0 · Y_base + Σ wk · Y_wave(k)'
 
 
 **Key Features:**
@@ -164,27 +164,3 @@ python train.py --config configs/std_unidetr.yaml
 * This repository corresponds to the manuscript submitted to *The Visual Computer*.
 * The repository includes the **core implementation and training pipeline required for reproducing the reported results**.
 * Additional documentation and improvements will be released soon.
-
----
-```
-## 📄 Citation
-
-If you find this work useful, please cite:
-
-
-@article{zhou2026stdunidetr,
-  title={Backbone–Encoder Co-Design for Lightweight Detection of Texture-Dominant Industrial Surface Defects},
-  author={Zhou, Bingyu and Chen, Cifa},
-  journal={The Visual Computer},
-  year={2026}
-}
-
-
----
-
-## 🙏 Acknowledgments
-
-* DETR-based frameworks (RT-DETR, DEIM, D-FINE)
-* Vision foundation models (DINOv3)
-* Industrial defect detection community
-```
