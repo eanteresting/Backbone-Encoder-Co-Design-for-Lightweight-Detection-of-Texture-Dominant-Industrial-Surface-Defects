@@ -77,7 +77,6 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 /project_root
 ├── Baseline/              # Baseline (UniDETR)
 ├── modules/               # Core modules (AMS-Stem, PWConv, BSA, MSAM)
-├── configs/               # Training configuration files
 ```
 
 ---
