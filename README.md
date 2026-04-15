@@ -68,10 +68,7 @@ conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvi
 * **NEU-DET Dataset**
 
 ### Notes
-
-* Images are resized to **640 × 640**
-* Data is split into **train/val/test = 6:2:2**
-* Background-only samples are partially filtered to reduce imbalance
+* In PAO Dataset, background-only samples are partially filtered to reduce imbalance
 
 ---
 
