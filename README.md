@@ -51,6 +51,7 @@ The key contributions include:
 
 # Create environment
 conda create -n [your project name] python=3.10
+
 conda activate [your project name]
 
 # Install PyTorch
