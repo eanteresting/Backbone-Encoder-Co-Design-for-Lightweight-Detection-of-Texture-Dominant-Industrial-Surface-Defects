@@ -55,7 +55,7 @@ conda create -n [your project name] python=3.10
 conda activate [your project name]
 
 # Install PyTorch
-conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1
 
 # Install dependencies
 1. Obtain and deploy DINOv3 from the official source.
