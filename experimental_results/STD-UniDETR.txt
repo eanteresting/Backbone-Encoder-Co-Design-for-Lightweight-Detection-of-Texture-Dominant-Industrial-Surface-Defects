@@ -1,6 +1,6 @@
-2026-04-16 13:48:09 [deimv2_decoder.py:__init__:359] INFO:      --- Use Gateway@True ---
-2026-04-16 13:48:09 [deimv2_decoder.py:__init__:360] INFO:      --- Use Share Bbox Head@False ---
-2026-04-16 13:48:09 [deimv2_decoder.py:__init__:361] INFO:      --- Use Share Score Head@False ---
+[deimv2_decoder.py:__init__:359] INFO:      --- Use Gateway@True ---
+[deimv2_decoder.py:__init__:360] INFO:      --- Use Share Bbox Head@False ---
+[deimv2_decoder.py:__init__:361] INFO:      --- Use Share Score Head@False ---
      --- Wide Layer@1 ---
 
 ------------------------------------- Calculate Flops Results -------------------------------------
