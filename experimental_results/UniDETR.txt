@@ -1,0 +1,652 @@
+2026-04-16 13:50:42 [deimv2_decoder.py:__init__:359] INFO:      --- Use Gateway@True ---
+2026-04-16 13:50:42 [deimv2_decoder.py:__init__:360] INFO:      --- Use Share Bbox Head@False ---
+2026-04-16 13:50:42 [deimv2_decoder.py:__init__:361] INFO:      --- Use Share Score Head@False ---
+     --- Wide Layer@1 ---
+
+------------------------------------- Calculate Flops Results -------------------------------------
+Notations:
+number of parameters (Params), number of multiply-accumulate operations(MACs),
+number of floating-point operations (FLOPs), floating-point operations per second (FLOPS),
+fwd FLOPs (model forward propagation FLOPs), bwd FLOPs (model backward propagation FLOPs),
+default model backpropagation takes 2.00 times as much computation as forward propagation.
+
+Total Training Params:                                                  3.63 M  
+fwd MACs:                                                               3.3648 GMACs
+fwd FLOPs:                                                              6.7896 GFLOPS
+fwd+bwd MACs:                                                           10.0945 GMACs
+fwd+bwd FLOPs:                                                          20.3689 GFLOPS
+
+-------------------------------- Detailed Calculated FLOPs Results --------------------------------
+Each module caculated is listed after its name in the following order: 
+params, percentage of total params, MACs, percentage of total MACs, FLOPS, percentage of total FLOPs
+
+Note: 1. A module can have torch.nn.module or torch.nn.functional to compute logits (e.g. CrossEntropyLoss). 
+ They are not counted as submodules in calflops and not to be printed out. However they make up the difference between a parent's MACs and the sum of its submodules'.
+2. Number of floating-point operations is a theoretical estimation, thus FLOPS computed using that could be larger than the maximum system throughput.
+
+Model_for_flops(
+  3.63 M = 100% Params, 3.36 GMACs = 100% MACs, 6.79 GFLOPS = 100% FLOPs
+  (model): DEIM(
+    3.63 M = 100% Params, 3.36 GMACs = 100% MACs, 6.79 GFLOPS = 100% FLOPs
+    (backbone): HGNetv2(
+      1.85 M = 51.0303% Params, 2.59 GMACs = 76.9497% MACs, 5.23 GFLOPS = 77.0326% FLOPs
+      (stem): StemBlock(
+        6.47 K = 0.1785% Params, 273.61 MMACs = 8.1315% MACs, 563.62 MFLOPS = 8.3012% FLOPs
+        (stem1): ConvBNAct(
+          466 = 0.0129% Params, 44.24 MMACs = 1.3147% MACs, 93.39 MFLOPS = 1.3755% FLOPs
+          (conv): Conv2d(432 = 0.0119% Params, 44.24 MMACs = 1.3147% MACs, 88.47 MFLOPS = 1.3031% FLOPs, 3, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(32 = 0.0009% Params, 0 MACs = 0% MACs, 3.28 MFLOPS = 0.0483% FLOPs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs)
+          (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        )
+        (stem2a): ConvBNAct(
+          530 = 0.0146% Params, 52.43 MMACs = 1.5581% MACs, 107.32 MFLOPS = 1.5806% FLOPs
+          (conv): Conv2d(512 = 0.0141% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 16, 8, kernel_size=(2, 2), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(16 = 0.0004% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs, 8, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs)
+          (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        )
+        (stem2b): ConvBNAct(
+          546 = 0.0151% Params, 52.43 MMACs = 1.5581% MACs, 109.77 MFLOPS = 1.6168% FLOPs
+          (conv): Conv2d(512 = 0.0141% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 8, 16, kernel_size=(2, 2), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32 = 0.0009% Params, 0 MACs = 0% MACs, 3.28 MFLOPS = 0.0483% FLOPs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs)
+          (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        )
+        (stem3): ConvBNAct(
+          4.64 K = 0.128% Params, 117.96 MMACs = 3.5058% MACs, 237.16 MFLOPS = 3.4929% FLOPs
+          (conv): Conv2d(4.61 K = 0.1271% Params, 117.96 MMACs = 3.5058% MACs, 235.93 MFLOPS = 3.4748% FLOPs, 32, 16, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+          (bn): BatchNorm2d(32 = 0.0009% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+          (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        )
+        (stem4): ConvBNAct(
+          290 = 0.008% Params, 6.55 MMACs = 0.1948% MACs, 14.34 MFLOPS = 0.2111% FLOPs
+          (conv): Conv2d(256 = 0.0071% Params, 6.55 MMACs = 0.1948% MACs, 13.11 MFLOPS = 0.193% FLOPs, 16, 16, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (bn): BatchNorm2d(32 = 0.0009% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+          (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        )
+        (pool): MaxPool2d(0 = 0% Params, 0 MACs = 0% MACs, 1.65 MFLOPS = 0.0243% FLOPs, kernel_size=2, stride=1, padding=0, dilation=1, ceil_mode=True)
+      )
+      (stages): ModuleList(
+        (0): HG_Stage(
+          11.31 K = 0.3118% Params, 281.8 MMACs = 8.375% MACs, 574.67 MFLOPS = 8.4639% FLOPs
+          (downsample): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          (blocks): Sequential(
+            11.31 K = 0.3118% Params, 281.8 MMACs = 8.375% MACs, 574.67 MFLOPS = 8.4639% FLOPs
+            (0): HG_Block(
+              11.31 K = 0.3118% Params, 281.8 MMACs = 8.375% MACs, 574.67 MFLOPS = 8.4639% FLOPs
+              (layers): ModuleList(
+                (0-2): 3 x ConvBNAct(
+                  2.34 K = 0.0645% Params, 58.98 MMACs = 1.7529% MACs, 119.19 MFLOPS = 1.7555% FLOPs
+                  (conv): Conv2d(2.3 K = 0.0635% Params, 58.98 MMACs = 1.7529% MACs, 117.96 MFLOPS = 1.7374% FLOPs, 16, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                  (bn): BatchNorm2d(32 = 0.0009% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (aggregation): Sequential(
+                4.29 K = 0.1184% Params, 104.86 MMACs = 3.1163% MACs, 217.09 MFLOPS = 3.1973% FLOPs
+                (0): ConvBNAct(
+                  2.11 K = 0.0583% Params, 52.43 MMACs = 1.5581% MACs, 107.32 MFLOPS = 1.5806% FLOPs
+                  (conv): Conv2d(2.05 K = 0.0565% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 64, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64 = 0.0018% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1): ConvBNAct(
+                  2.18 K = 0.0601% Params, 52.43 MMACs = 1.5581% MACs, 109.77 MFLOPS = 1.6168% FLOPs
+                  (conv): Conv2d(2.05 K = 0.0565% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 32, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 3.28 MFLOPS = 0.0483% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (drop_path): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+        )
+        (1): HG_Stage(
+          91.79 K = 2.5313% Params, 580.4 MMACs = 17.2491% MACs, 1.17 GFLOPS = 17.2445% FLOPs
+          (downsample): ConvBNAct(
+            704 = 0.0194% Params, 3.69 MMACs = 0.1096% MACs, 8.19 MFLOPS = 0.1207% FLOPs
+            (conv): Conv2d(576 = 0.0159% Params, 3.69 MMACs = 0.1096% MACs, 7.37 MFLOPS = 0.1086% FLOPs, 64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          )
+          (blocks): Sequential(
+            91.08 K = 2.5119% Params, 576.72 MMACs = 17.1395% MACs, 1.16 GFLOPS = 17.1239% FLOPs
+            (0): HG_Block(
+              91.08 K = 2.5119% Params, 576.72 MMACs = 17.1395% MACs, 1.16 GFLOPS = 17.1239% FLOPs
+              (layers): ModuleList(
+                (0): ConvBNAct(
+                  18.5 K = 0.5101% Params, 117.96 MMACs = 3.5058% MACs, 236.54 MFLOPS = 3.4839% FLOPs
+                  (conv): Conv2d(18.43 K = 0.5083% Params, 117.96 MMACs = 3.5058% MACs, 235.93 MFLOPS = 3.4748% FLOPs, 64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64 = 0.0018% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1-2): 2 x ConvBNAct(
+                  9.28 K = 0.256% Params, 58.98 MMACs = 1.7529% MACs, 118.58 MFLOPS = 1.7465% FLOPs
+                  (conv): Conv2d(9.22 K = 0.2542% Params, 58.98 MMACs = 1.7529% MACs, 117.96 MFLOPS = 1.7374% FLOPs, 32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                  (bn): BatchNorm2d(64 = 0.0018% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, 32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (aggregation): Sequential(
+                54.02 K = 1.4898% Params, 340.79 MMACs = 10.1279% MACs, 688.95 MFLOPS = 10.147% FLOPs
+                (0): ConvBNAct(
+                  20.74 K = 0.5719% Params, 131.07 MMACs = 3.8953% MACs, 264.6 MFLOPS = 3.8971% FLOPs
+                  (conv): Conv2d(20.48 K = 0.5648% Params, 131.07 MMACs = 3.8953% MACs, 262.14 MFLOPS = 3.8609% FLOPs, 160, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1): ConvBNAct(
+                  33.28 K = 0.9179% Params, 209.72 MMACs = 6.2325% MACs, 424.35 MFLOPS = 6.2499% FLOPs
+                  (conv): Conv2d(32.77 K = 0.9037% Params, 209.72 MMACs = 6.2325% MACs, 419.43 MFLOPS = 6.1775% FLOPs, 128, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(512 = 0.0141% Params, 0 MACs = 0% MACs, 3.28 MFLOPS = 0.0483% FLOPs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (drop_path): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+        )
+        (2): HG_Stage(
+          639.64 K = 17.6399% Params, 1.02 GMACs = 30.1706% MACs, 2.04 GFLOPS = 30.0701% FLOPs
+          (downsample): ConvBNAct(
+            2.82 K = 0.0777% Params, 3.69 MMACs = 0.1096% MACs, 8.19 MFLOPS = 0.1207% FLOPs
+            (conv): Conv2d(2.3 K = 0.0635% Params, 3.69 MMACs = 0.1096% MACs, 7.37 MFLOPS = 0.1086% FLOPs, 256, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=256, bias=False)
+            (bn): BatchNorm2d(512 = 0.0141% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          )
+          (blocks): Sequential(
+            636.82 K = 17.5622% Params, 1.01 GMACs = 30.0611% MACs, 2.03 GFLOPS = 29.9494% FLOPs
+            (0): HG_Block(
+              277.45 K = 7.6515% Params, 440.22 MMACs = 13.0829% MACs, 885.66 MFLOPS = 13.0442% FLOPs
+              (layers): ModuleList(
+                (0): LightConvBNAct(
+                  18.24 K = 0.5031% Params, 28.77 MMACs = 0.8551% MACs, 58.06 MFLOPS = 0.8551% FLOPs
+                  (conv1): ConvBNAct(
+                    16.51 K = 0.4554% Params, 26.21 MMACs = 0.7791% MACs, 52.63 MFLOPS = 0.7752% FLOPs
+                    (conv): Conv2d(16.38 K = 0.4518% Params, 26.21 MMACs = 0.7791% MACs, 52.43 MFLOPS = 0.7722% FLOPs, 256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    1.73 K = 0.0477% Params, 2.56 MMACs = 0.0761% MACs, 5.43 MFLOPS = 0.0799% FLOPs
+                    (conv): Conv2d(1.6 K = 0.0441% Params, 2.56 MMACs = 0.0761% MACs, 5.12 MFLOPS = 0.0754% FLOPs, 64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+                (1-2): 2 x LightConvBNAct(
+                  5.95 K = 0.1642% Params, 9.11 MMACs = 0.2708% MACs, 18.74 MFLOPS = 0.276% FLOPs
+                  (conv1): ConvBNAct(
+                    4.22 K = 0.1165% Params, 6.55 MMACs = 0.1948% MACs, 13.31 MFLOPS = 0.1961% FLOPs
+                    (conv): Conv2d(4.1 K = 0.113% Params, 6.55 MMACs = 0.1948% MACs, 13.11 MFLOPS = 0.193% FLOPs, 64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    1.73 K = 0.0477% Params, 2.56 MMACs = 0.0761% MACs, 5.43 MFLOPS = 0.0799% FLOPs
+                    (conv): Conv2d(1.6 K = 0.0441% Params, 2.56 MMACs = 0.0761% MACs, 5.12 MFLOPS = 0.0754% FLOPs, 64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+              )
+              (aggregation): Sequential(
+                247.3 K = 6.8201% Params, 393.22 MMACs = 11.686% MACs, 790.12 MFLOPS = 11.6371% FLOPs
+                (0): ConvBNAct(
+                  115.2 K = 3.177% Params, 183.5 MMACs = 5.4535% MACs, 368.23 MFLOPS = 5.4234% FLOPs
+                  (conv): Conv2d(114.69 K = 3.1629% Params, 183.5 MMACs = 5.4535% MACs, 367 MFLOPS = 5.4053% FLOPs, 448, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(512 = 0.0141% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1): ConvBNAct(
+                  132.1 K = 3.643% Params, 209.72 MMACs = 6.2325% MACs, 421.89 MFLOPS = 6.2137% FLOPs
+                  (conv): Conv2d(131.07 K = 3.6147% Params, 209.72 MMACs = 6.2325% MACs, 419.43 MFLOPS = 6.1775% FLOPs, 256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(1.02 K = 0.0282% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (drop_path): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+            (1): HG_Block(
+              359.37 K = 9.9107% Params, 571.29 MMACs = 16.9782% MACs, 1.15 GFLOPS = 16.9052% FLOPs
+              (layers): ModuleList(
+                (0): LightConvBNAct(
+                  34.63 K = 0.9549% Params, 54.99 MMACs = 1.6342% MACs, 110.49 MFLOPS = 1.6273% FLOPs
+                  (conv1): ConvBNAct(
+                    32.9 K = 0.9072% Params, 52.43 MMACs = 1.5581% MACs, 105.06 MFLOPS = 1.5474% FLOPs
+                    (conv): Conv2d(32.77 K = 0.9037% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 512, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    1.73 K = 0.0477% Params, 2.56 MMACs = 0.0761% MACs, 5.43 MFLOPS = 0.0799% FLOPs
+                    (conv): Conv2d(1.6 K = 0.0441% Params, 2.56 MMACs = 0.0761% MACs, 5.12 MFLOPS = 0.0754% FLOPs, 64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+                (1-2): 2 x LightConvBNAct(
+                  5.95 K = 0.1642% Params, 9.11 MMACs = 0.2708% MACs, 18.74 MFLOPS = 0.276% FLOPs
+                  (conv1): ConvBNAct(
+                    4.22 K = 0.1165% Params, 6.55 MMACs = 0.1948% MACs, 13.31 MFLOPS = 0.1961% FLOPs
+                    (conv): Conv2d(4.1 K = 0.113% Params, 6.55 MMACs = 0.1948% MACs, 13.11 MFLOPS = 0.193% FLOPs, 64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    1.73 K = 0.0477% Params, 2.56 MMACs = 0.0761% MACs, 5.43 MFLOPS = 0.0799% FLOPs
+                    (conv): Conv2d(1.6 K = 0.0441% Params, 2.56 MMACs = 0.0761% MACs, 5.12 MFLOPS = 0.0754% FLOPs, 64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=64, bias=False)
+                    (bn): BatchNorm2d(128 = 0.0035% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, 64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+              )
+              (aggregation): Sequential(
+                312.84 K = 8.6274% Params, 498.07 MMACs = 14.8023% MACs, 999.83 MFLOPS = 14.7259% FLOPs
+                (0): ConvBNAct(
+                  180.74 K = 4.9844% Params, 288.36 MMACs = 8.5697% MACs, 577.95 MFLOPS = 8.5122% FLOPs
+                  (conv): Conv2d(180.22 K = 4.9702% Params, 288.36 MMACs = 8.5697% MACs, 576.72 MFLOPS = 8.4941% FLOPs, 704, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(512 = 0.0141% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1): ConvBNAct(
+                  132.1 K = 3.643% Params, 209.72 MMACs = 6.2325% MACs, 421.89 MFLOPS = 6.2137% FLOPs
+                  (conv): Conv2d(131.07 K = 3.6147% Params, 209.72 MMACs = 6.2325% MACs, 419.43 MFLOPS = 6.1775% FLOPs, 256, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(1.02 K = 0.0282% Params, 0 MACs = 0% MACs, 1.64 MFLOPS = 0.0241% FLOPs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (drop_path): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+        )
+        (3): HG_Stage(
+          1.1 M = 30.3688% Params, 438.22 MMACs = 13.0235% MACs, 879.46 MFLOPS = 12.953% FLOPs
+          (downsample): ConvBNAct(
+            5.63 K = 0.1553% Params, 1.84 MMACs = 0.0548% MACs, 4.1 MFLOPS = 0.0603% FLOPs
+            (conv): Conv2d(4.61 K = 0.1271% Params, 1.84 MMACs = 0.0548% MACs, 3.69 MFLOPS = 0.0543% FLOPs, 512, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=512, bias=False)
+            (bn): BatchNorm2d(1.02 K = 0.0282% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          )
+          (blocks): Sequential(
+            1.1 M = 30.2135% Params, 436.38 MMACs = 12.9687% MACs, 875.37 MFLOPS = 12.8927% FLOPs
+            (0): HG_Block(
+              1.1 M = 30.2135% Params, 436.38 MMACs = 12.9687% MACs, 875.37 MFLOPS = 12.8927% FLOPs
+              (layers): ModuleList(
+                (0): LightConvBNAct(
+                  69.25 K = 1.9098% Params, 27.49 MMACs = 0.8171% MACs, 55.24 MFLOPS = 0.8137% FLOPs
+                  (conv1): ConvBNAct(
+                    65.79 K = 1.8144% Params, 26.21 MMACs = 0.7791% MACs, 52.53 MFLOPS = 0.7737% FLOPs
+                    (conv): Conv2d(65.54 K = 1.8074% Params, 26.21 MMACs = 0.7791% MACs, 52.43 MFLOPS = 0.7722% FLOPs, 512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    3.46 K = 0.0954% Params, 1.28 MMACs = 0.038% MACs, 2.71 MFLOPS = 0.04% FLOPs
+                    (conv): Conv2d(3.2 K = 0.0882% Params, 1.28 MMACs = 0.038% MACs, 2.56 MFLOPS = 0.0377% FLOPs, 128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (bn): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 51.2 KFLOPS = 0.0008% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+                (1-2): 2 x LightConvBNAct(
+                  20.1 K = 0.5543% Params, 7.83 MMACs = 0.2328% MACs, 15.92 MFLOPS = 0.2345% FLOPs
+                  (conv1): ConvBNAct(
+                    16.64 K = 0.4589% Params, 6.55 MMACs = 0.1948% MACs, 13.21 MFLOPS = 0.1946% FLOPs
+                    (conv): Conv2d(16.38 K = 0.4518% Params, 6.55 MMACs = 0.1948% MACs, 13.11 MFLOPS = 0.193% FLOPs, 128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                    (bn): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                    (lab): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                  (conv2): ConvBNAct(
+                    3.46 K = 0.0954% Params, 1.28 MMACs = 0.038% MACs, 2.71 MFLOPS = 0.04% FLOPs
+                    (conv): Conv2d(3.2 K = 0.0882% Params, 1.28 MMACs = 0.038% MACs, 2.56 MFLOPS = 0.0377% FLOPs, 128, 128, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), groups=128, bias=False)
+                    (bn): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                    (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 51.2 KFLOPS = 0.0008% FLOPs)
+                    (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                  )
+                )
+              )
+              (aggregation): Sequential(
+                986.12 K = 27.1952% Params, 393.22 MMACs = 11.686% MACs, 788.28 MFLOPS = 11.61% FLOPs
+                (0): ConvBNAct(
+                  459.78 K = 12.6798% Params, 183.5 MMACs = 5.4535% MACs, 367.62 MFLOPS = 5.4144% FLOPs
+                  (conv): Conv2d(458.75 K = 12.6515% Params, 183.5 MMACs = 5.4535% MACs, 367 MFLOPS = 5.4053% FLOPs, 896, 512, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(1.02 K = 0.0282% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, 512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+                (1): ConvBNAct(
+                  526.34 K = 14.5154% Params, 209.72 MMACs = 6.2325% MACs, 420.66 MFLOPS = 6.1956% FLOPs
+                  (conv): Conv2d(524.29 K = 14.4588% Params, 209.72 MMACs = 6.2325% MACs, 419.43 MFLOPS = 6.1775% FLOPs, 512, 1024, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm2d(2.05 K = 0.0565% Params, 0 MACs = 0% MACs, 819.2 KFLOPS = 0.0121% FLOPs, 1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+                  (act): ReLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs)
+                  (lab): LearnableAffineBlock(2 = 0.0001% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+                )
+              )
+              (drop_path): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+        )
+      )
+    )
+    (decoder): DEIMV2Transformer(
+      1.06 M = 29.2248% Params, 320.36 MMACs = 9.5207% MACs, 643.83 MFLOPS = 9.4825% FLOPs
+      (input_proj): ModuleList(
+        (0-1): 2 x Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+      )
+      (decoder): TransformerDecoder(
+        806.37 K = 22.2381% Params, 240.02 MMACs = 7.1332% MACs, 482.57 MFLOPS = 7.1075% FLOPs
+        (layers): ModuleList(
+          (0-2): 3 x TransformerDecoderLayer(
+            268.32 K = 7.3997% Params, 79.87 MMACs = 2.3737% MACs, 160.57 MFLOPS = 2.3649% FLOPs
+            (self_attn): MultiheadAttention(
+              66.05 K = 1.8215% Params, 19.66 MMACs = 0.5843% MACs, 40.04 MFLOPS = 0.5897% FLOPs
+              (out_proj): NonDynamicallyQuantizableLinear(16.51 K = 0.4554% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, in_features=128, out_features=128, bias=True)
+            )
+            (dropout1): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+            (norm1): RMSNorm(128 = 0.0035% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, dim=128, eps=1e-06)
+            (cross_attn): MSDeformableAttention(
+              37.15 K = 1.0246% Params, 11.06 MMACs = 0.3287% MACs, 22.15 MFLOPS = 0.3262% FLOPs
+              (sampling_offsets): Linear(24.77 K = 0.6831% Params, 7.37 MMACs = 0.2191% MACs, 14.75 MFLOPS = 0.2172% FLOPs, in_features=128, out_features=192, bias=True)
+              (attention_weights): Linear(12.38 K = 0.3415% Params, 3.69 MMACs = 0.1096% MACs, 7.37 MFLOPS = 0.1086% FLOPs, in_features=128, out_features=96, bias=True)
+            )
+            (dropout2): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+            (gateway): Gate(
+              65.92 K = 1.8179% Params, 19.66 MMACs = 0.5843% MACs, 39.32 MFLOPS = 0.5791% FLOPs
+              (gate): Linear(65.79 K = 1.8144% Params, 19.66 MMACs = 0.5843% MACs, 39.32 MFLOPS = 0.5791% FLOPs, in_features=256, out_features=256, bias=True)
+              (norm): RMSNorm(128 = 0.0035% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, dim=128, eps=1e-06)
+            )
+            (swish_ffn): SwiGLUFFN(
+              98.94 K = 2.7287% Params, 29.49 MMACs = 0.8765% MACs, 59.06 MFLOPS = 0.8698% FLOPs
+              (w12): Linear(66.05 K = 1.8215% Params, 19.66 MMACs = 0.5843% MACs, 39.32 MFLOPS = 0.5791% FLOPs, in_features=128, out_features=512, bias=True)
+              (w3): Linear(32.9 K = 0.9072% Params, 9.83 MMACs = 0.2922% MACs, 19.66 MFLOPS = 0.2896% FLOPs, in_features=256, out_features=128, bias=True)
+            )
+            (dropout4): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+            (norm3): RMSNorm(128 = 0.0035% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, dim=128, eps=1e-06)
+          )
+        )
+        (lqe_layers): ModuleList(
+          (0-1): 2 x Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          (2): LQE(
+            1.41 K = 0.0389% Params, 403.2 KMACs = 0.012% MACs, 865.2 KFLOPS = 0.0127% FLOPs
+            (reg_conf): MLP(
+              1.41 K = 0.0389% Params, 403.2 KMACs = 0.012% MACs, 825.6 KFLOPS = 0.0122% FLOPs
+              (layers): ModuleList(
+                (0): Linear(1.34 K = 0.0371% Params, 384 KMACs = 0.0114% MACs, 768 KFLOPS = 0.0113% FLOPs, in_features=20, out_features=64, bias=True)
+                (1): Linear(65 = 0.0018% Params, 19.2 KMACs = 0.0006% MACs, 38.4 KFLOPS = 0.0006% FLOPs, in_features=64, out_features=1, bias=True)
+              )
+              (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 19.2 KFLOPS = 0.0003% FLOPs, inplace=True)
+            )
+          )
+        )
+      )
+      (denoising_class_embed): Embedding(896 = 0.0247% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, 7, 128, padding_idx=6)
+      (enc_score_head): Linear(774 = 0.0213% Params, 1.54 MMACs = 0.0456% MACs, 3.07 MFLOPS = 0.0452% FLOPs, in_features=128, out_features=6, bias=True)
+      (enc_bbox_head): MLP(
+        33.54 K = 0.925% Params, 9.98 MMACs = 0.2967% MACs, 20.04 MFLOPS = 0.2952% FLOPs
+        (layers): ModuleList(
+          (0-1): 2 x Linear(16.51 K = 0.4554% Params, 4.92 MMACs = 0.1461% MACs, 9.83 MFLOPS = 0.1448% FLOPs, in_features=128, out_features=128, bias=True)
+          (2): Linear(516 = 0.0142% Params, 153.6 KMACs = 0.0046% MACs, 307.2 KFLOPS = 0.0045% FLOPs, in_features=128, out_features=4, bias=True)
+        )
+        (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 76.8 KFLOPS = 0.0011% FLOPs, inplace=True)
+      )
+      (query_pos_head): MLP(
+        33.66 K = 0.9284% Params, 9.98 MMACs = 0.2967% MACs, 20.04 MFLOPS = 0.2952% FLOPs
+        (layers): ModuleList(
+          (0): Linear(640 = 0.0176% Params, 153.6 KMACs = 0.0046% MACs, 307.2 KFLOPS = 0.0045% FLOPs, in_features=4, out_features=128, bias=True)
+          (1-2): 2 x Linear(16.51 K = 0.4554% Params, 4.92 MMACs = 0.1461% MACs, 9.83 MFLOPS = 0.1448% FLOPs, in_features=128, out_features=128, bias=True)
+        )
+        (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 76.8 KFLOPS = 0.0011% FLOPs, inplace=True)
+      )
+      (pre_bbox_head): MLP(
+        33.54 K = 0.925% Params, 9.98 MMACs = 0.2967% MACs, 20.04 MFLOPS = 0.2952% FLOPs
+        (layers): ModuleList(
+          (0-1): 2 x Linear(16.51 K = 0.4554% Params, 4.92 MMACs = 0.1461% MACs, 9.83 MFLOPS = 0.1448% FLOPs, in_features=128, out_features=128, bias=True)
+          (2): Linear(516 = 0.0142% Params, 153.6 KMACs = 0.0046% MACs, 307.2 KFLOPS = 0.0045% FLOPs, in_features=128, out_features=4, bias=True)
+        )
+        (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 76.8 KFLOPS = 0.0011% FLOPs, inplace=True)
+      )
+      (integral): Integral(0 = 0% Params, 3.92 MMACs = 0.1165% MACs, 7.96 MFLOPS = 0.1172% FLOPs)
+      (dec_score_head): ModuleList(
+        (0-1): 2 x Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+        (2): Linear(774 = 0.0213% Params, 230.4 KMACs = 0.0068% MACs, 460.8 KFLOPS = 0.0068% FLOPs, in_features=128, out_features=6, bias=True)
+      )
+      (dec_bbox_head): ModuleList(
+        (0-2): 3 x MLP(
+          50.05 K = 1.3803% Params, 14.9 MMACs = 0.4428% MACs, 29.88 MFLOPS = 0.44% FLOPs
+          (layers): ModuleList(
+            (0-1): 2 x Linear(16.51 K = 0.4554% Params, 4.92 MMACs = 0.1461% MACs, 9.83 MFLOPS = 0.1448% FLOPs, in_features=128, out_features=128, bias=True)
+            (2): Linear(17.03 K = 0.4696% Params, 5.07 MMACs = 0.1506% MACs, 10.14 MFLOPS = 0.1493% FLOPs, in_features=128, out_features=132, bias=True)
+          )
+          (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 76.8 KFLOPS = 0.0011% FLOPs, inplace=True)
+        )
+      )
+    )
+    (encoder): HybridEncoderV2(
+      715.96 K = 19.7449% Params, 455.25 MMACs = 13.5296% MACs, 915.58 MFLOPS = 13.4849% FLOPs
+      (input_proj): ModuleList(
+        (0): Sequential(
+          65.79 K = 1.8144% Params, 104.86 MMACs = 3.1163% MACs, 210.12 MFLOPS = 3.0948% FLOPs
+          (conv): Conv2d(65.54 K = 1.8074% Params, 104.86 MMACs = 3.1163% MACs, 209.72 MFLOPS = 3.0888% FLOPs, 512, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (norm): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (1): Sequential(
+          131.33 K = 3.6218% Params, 52.43 MMACs = 1.5581% MACs, 104.96 MFLOPS = 1.5459% FLOPs
+          (conv): Conv2d(131.07 K = 3.6147% Params, 52.43 MMACs = 1.5581% MACs, 104.86 MFLOPS = 1.5444% FLOPs, 1024, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+          (norm): BatchNorm2d(256 = 0.0071% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, 128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (encoder): ModuleList(
+        (0): TransformerEncoder(
+          198.27 K = 5.468% Params, 78.64 MMACs = 2.3372% MACs, 159.28 MFLOPS = 2.346% FLOPs
+          (layers): ModuleList(
+            (0): TransformerEncoderLayer(
+              198.27 K = 5.468% Params, 78.64 MMACs = 2.3372% MACs, 159.28 MFLOPS = 2.346% FLOPs
+              (self_attn): MultiheadAttention(
+                66.05 K = 1.8215% Params, 26.21 MMACs = 0.7791% MACs, 53.71 MFLOPS = 0.791% FLOPs
+                (out_proj): NonDynamicallyQuantizableLinear(16.51 K = 0.4554% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, in_features=128, out_features=128, bias=True)
+              )
+              (linear1): Linear(66.05 K = 1.8215% Params, 26.21 MMACs = 0.7791% MACs, 52.43 MFLOPS = 0.7722% FLOPs, in_features=128, out_features=512, bias=True)
+              (dropout): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+              (linear2): Linear(65.66 K = 1.8109% Params, 26.21 MMACs = 0.7791% MACs, 52.43 MFLOPS = 0.7722% FLOPs, in_features=512, out_features=128, bias=True)
+              (norm1): LayerNorm(256 = 0.0071% Params, 0 MACs = 0% MACs, 256 KFLOPS = 0.0038% FLOPs, (128,), eps=1e-05, elementwise_affine=True)
+              (norm2): LayerNorm(256 = 0.0071% Params, 0 MACs = 0% MACs, 256 KFLOPS = 0.0038% FLOPs, (128,), eps=1e-05, elementwise_affine=True)
+              (dropout1): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+              (dropout2): Dropout(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, p=0.0, inplace=False)
+              (mlp_block): ModuleList()
+              (activation): GELU(0 = 0% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, approximate='none')
+            )
+          )
+        )
+      )
+      (feature_projector): Sequential(
+        99.07 K = 2.7322% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs
+        (0): Linear(99.07 K = 2.7322% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs, in_features=128, out_features=768, bias=True)
+      )
+      (lateral_convs): ModuleList(
+        (0): ConvNormLayer_fuse(
+          16.51 K = 0.4554% Params, 6.55 MMACs = 0.1948% MACs, 13.16 MFLOPS = 0.1938% FLOPs
+          (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+          (conv_bn_fused): Conv2d(16.51 K = 0.4554% Params, 6.55 MMACs = 0.1948% MACs, 13.16 MFLOPS = 0.1938% FLOPs, 128, 128, kernel_size=(1, 1), stride=(1, 1))
+        )
+      )
+      (fpn_blocks): ModuleList(
+        (0): RepNCSPELAN5(
+          93.6 K = 2.5812% Params, 148.87 MMACs = 4.4244% MACs, 299.51 MFLOPS = 4.4113% FLOPs
+          (cv1): ConvNormLayer_fuse(
+            33.02 K = 0.9107% Params, 52.43 MMACs = 1.5581% MACs, 105.68 MFLOPS = 1.5564% FLOPs
+            (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 409.6 KFLOPS = 0.006% FLOPs, inplace=True)
+            (conv_bn_fused): Conv2d(33.02 K = 0.9107% Params, 52.43 MMACs = 1.5581% MACs, 105.27 MFLOPS = 1.5504% FLOPs, 128, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (cv2): Sequential(
+            13.4 K = 0.3695% Params, 21.3 MMACs = 0.6331% MACs, 42.87 MFLOPS = 0.6315% FLOPs
+            (0): CSPLayer2(
+              13.4 K = 0.3695% Params, 21.3 MMACs = 0.6331% MACs, 42.87 MFLOPS = 0.6315% FLOPs
+              (conv1): ConvNormLayer_fuse(
+                5.42 K = 0.1494% Params, 8.6 MMACs = 0.2556% MACs, 17.34 MFLOPS = 0.2554% FLOPs
+                (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 67.2 KFLOPS = 0.001% FLOPs, inplace=True)
+                (conv_bn_fused): Conv2d(5.42 K = 0.1494% Params, 8.6 MMACs = 0.2556% MACs, 17.27 MFLOPS = 0.2544% FLOPs, 128, 42, kernel_size=(1, 1), stride=(1, 1))
+              )
+              (bottlenecks): Sequential(
+                7.98 K = 0.2201% Params, 12.7 MMACs = 0.3775% MACs, 25.54 MFLOPS = 0.3761% FLOPs
+                (0): VGGBlock(
+                  3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.77 MFLOPS = 0.1881% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 33.6 KFLOPS = 0.0005% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.73 MFLOPS = 0.1876% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+                (1): VGGBlock(
+                  3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.77 MFLOPS = 0.1881% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 33.6 KFLOPS = 0.0005% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.73 MFLOPS = 0.1876% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+              )
+              (conv3): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+          (cv3): Sequential(
+            8.9 K = 0.2456% Params, 14.11 MMACs = 0.4194% MACs, 28.49 MFLOPS = 0.4197% FLOPs
+            (0): CSPLayer2(
+              8.9 K = 0.2456% Params, 14.11 MMACs = 0.4194% MACs, 28.49 MFLOPS = 0.4197% FLOPs
+              (conv1): ConvNormLayer_fuse(
+                924 = 0.0255% Params, 1.41 MMACs = 0.0419% MACs, 2.96 MFLOPS = 0.0435% FLOPs
+                (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 67.2 KFLOPS = 0.001% FLOPs, inplace=True)
+                (conv_bn_fused): Conv2d(924 = 0.0255% Params, 1.41 MMACs = 0.0419% MACs, 2.89 MFLOPS = 0.0426% FLOPs, 21, 42, kernel_size=(1, 1), stride=(1, 1))
+              )
+              (bottlenecks): Sequential(
+                7.98 K = 0.2201% Params, 12.7 MMACs = 0.3775% MACs, 25.54 MFLOPS = 0.3761% FLOPs
+                (0): VGGBlock(
+                  3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.77 MFLOPS = 0.1881% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 33.6 KFLOPS = 0.0005% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.73 MFLOPS = 0.1876% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+                (1): VGGBlock(
+                  3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.77 MFLOPS = 0.1881% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 33.6 KFLOPS = 0.0005% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 6.35 MMACs = 0.1887% MACs, 12.73 MFLOPS = 0.1876% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+              )
+              (conv3): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+          (cv4): ConvNormLayer_fuse(
+            38.27 K = 1.0555% Params, 61.03 MMACs = 1.8138% MACs, 122.47 MFLOPS = 1.8038% FLOPs
+            (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 204.8 KFLOPS = 0.003% FLOPs, inplace=True)
+            (conv_bn_fused): Conv2d(38.27 K = 1.0555% Params, 61.03 MMACs = 1.8138% MACs, 122.27 MFLOPS = 1.8008% FLOPs, 298, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+      )
+      (downsample_convs): ModuleList(
+        (0): Sequential(
+          17.79 K = 0.4907% Params, 26.68 MMACs = 0.7928% MACs, 53.61 MFLOPS = 0.7895% FLOPs
+          (0): SCDown(
+            17.79 K = 0.4907% Params, 26.68 MMACs = 0.7928% MACs, 53.61 MFLOPS = 0.7895% FLOPs
+            (cv1): ConvNormLayer_fuse(
+              16.51 K = 0.4554% Params, 26.21 MMACs = 0.7791% MACs, 52.63 MFLOPS = 0.7752% FLOPs
+              (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+              (conv_bn_fused): Conv2d(16.51 K = 0.4554% Params, 26.21 MMACs = 0.7791% MACs, 52.63 MFLOPS = 0.7752% FLOPs, 128, 128, kernel_size=(1, 1), stride=(1, 1))
+            )
+            (cv2): ConvNormLayer_fuse(
+              1.28 K = 0.0353% Params, 460.8 KMACs = 0.0137% MACs, 972.8 KFLOPS = 0.0143% FLOPs
+              (act): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+              (conv_bn_fused): Conv2d(1.28 K = 0.0353% Params, 460.8 KMACs = 0.0137% MACs, 972.8 KFLOPS = 0.0143% FLOPs, 128, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=128)
+            )
+          )
+        )
+      )
+      (pan_blocks): ModuleList(
+        (0): RepNCSPELAN5(
+          93.6 K = 2.5812% Params, 37.22 MMACs = 1.1061% MACs, 74.88 MFLOPS = 1.1028% FLOPs
+          (cv1): ConvNormLayer_fuse(
+            33.02 K = 0.9107% Params, 13.11 MMACs = 0.3895% MACs, 26.42 MFLOPS = 0.3891% FLOPs
+            (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 102.4 KFLOPS = 0.0015% FLOPs, inplace=True)
+            (conv_bn_fused): Conv2d(33.02 K = 0.9107% Params, 13.11 MMACs = 0.3895% MACs, 26.32 MFLOPS = 0.3876% FLOPs, 128, 256, kernel_size=(1, 1), stride=(1, 1))
+          )
+          (cv2): Sequential(
+            13.4 K = 0.3695% Params, 5.33 MMACs = 0.1583% MACs, 10.72 MFLOPS = 0.1579% FLOPs
+            (0): CSPLayer2(
+              13.4 K = 0.3695% Params, 5.33 MMACs = 0.1583% MACs, 10.72 MFLOPS = 0.1579% FLOPs
+              (conv1): ConvNormLayer_fuse(
+                5.42 K = 0.1494% Params, 2.15 MMACs = 0.0639% MACs, 4.33 MFLOPS = 0.0638% FLOPs
+                (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 16.8 KFLOPS = 0.0002% FLOPs, inplace=True)
+                (conv_bn_fused): Conv2d(5.42 K = 0.1494% Params, 2.15 MMACs = 0.0639% MACs, 4.32 MFLOPS = 0.0636% FLOPs, 128, 42, kernel_size=(1, 1), stride=(1, 1))
+              )
+              (bottlenecks): Sequential(
+                7.98 K = 0.2201% Params, 3.18 MMACs = 0.0944% MACs, 6.38 MFLOPS = 0.094% FLOPs
+                (0): VGGBlock(
+                  3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.19 MFLOPS = 0.047% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 8.4 KFLOPS = 0.0001% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.18 MFLOPS = 0.0469% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+                (1): VGGBlock(
+                  3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.19 MFLOPS = 0.047% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 8.4 KFLOPS = 0.0001% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.18 MFLOPS = 0.0469% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+              )
+              (conv3): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+          (cv3): Sequential(
+            8.9 K = 0.2456% Params, 3.53 MMACs = 0.1048% MACs, 7.12 MFLOPS = 0.1049% FLOPs
+            (0): CSPLayer2(
+              8.9 K = 0.2456% Params, 3.53 MMACs = 0.1048% MACs, 7.12 MFLOPS = 0.1049% FLOPs
+              (conv1): ConvNormLayer_fuse(
+                924 = 0.0255% Params, 352.8 KMACs = 0.0105% MACs, 739.2 KFLOPS = 0.0109% FLOPs
+                (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 16.8 KFLOPS = 0.0002% FLOPs, inplace=True)
+                (conv_bn_fused): Conv2d(924 = 0.0255% Params, 352.8 KMACs = 0.0105% MACs, 722.4 KFLOPS = 0.0106% FLOPs, 21, 42, kernel_size=(1, 1), stride=(1, 1))
+              )
+              (bottlenecks): Sequential(
+                7.98 K = 0.2201% Params, 3.18 MMACs = 0.0944% MACs, 6.38 MFLOPS = 0.094% FLOPs
+                (0): VGGBlock(
+                  3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.19 MFLOPS = 0.047% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 8.4 KFLOPS = 0.0001% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.18 MFLOPS = 0.0469% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+                (1): VGGBlock(
+                  3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.19 MFLOPS = 0.047% FLOPs
+                  (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 8.4 KFLOPS = 0.0001% FLOPs, inplace=True)
+                  (conv): Conv2d(3.99 K = 0.11% Params, 1.59 MMACs = 0.0472% MACs, 3.18 MFLOPS = 0.0469% FLOPs, 21, 21, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+                )
+              )
+              (conv3): Identity(0 = 0% Params, 0 MACs = 0% MACs, 0 FLOPS = 0% FLOPs)
+            )
+          )
+          (cv4): ConvNormLayer_fuse(
+            38.27 K = 1.0555% Params, 15.26 MMACs = 0.4534% MACs, 30.62 MFLOPS = 0.4509% FLOPs
+            (act): SiLU(0 = 0% Params, 0 MACs = 0% MACs, 51.2 KFLOPS = 0.0008% FLOPs, inplace=True)
+            (conv_bn_fused): Conv2d(38.27 K = 1.0555% Params, 15.26 MMACs = 0.4534% MACs, 30.57 MFLOPS = 0.4502% FLOPs, 298, 128, kernel_size=(1, 1), stride=(1, 1))
+          )
+        )
+      )
+    )
+  )
+)
+---------------------------------------------------------------------------------------------------
+Model FLOPs:6.7896 GFLOPS   MACs:3.3648 GMACs   Params:3626075 
