@@ -1,0 +1,75 @@
+__include__: [
+  '../deim_dfine/dfine_hgnetv2_n_coco.yml',
+  '../base/deim.yml'
+]
+output_dir: ./deim_outputs/final-Conv
+
+DEIM:
+  backbone: HGNetv2
+  encoder: HybridEncoder
+
+HGNetv2:
+  name: 'B0'
+  return_idx: [ 2, 3 ]
+  freeze_at: -1
+  freeze_norm: False
+  use_lab: True
+  pretrained: False
+
+HybridEncoder:
+    version: 'deim'
+    in_channels: [ 512, 1024 ]
+    feat_strides: [ 16, 32 ]
+    # intra
+    hidden_dim: 128
+    use_encoder_idx: [ 1 ]
+    dim_feedforward: 512
+    # cross
+    expansion: 0.34
+    depth_mult: 0.5
+
+    num_encoder_layers: 1
+    nhead: 8
+    dropout: 0.
+    enc_act: 'gelu'
+    # cross
+    act: 'silu'
+
+optimizer:
+  type: AdamW
+  params:
+    - params: '^(?=.*backbone)(?!.*norm|bn).*$'
+      lr: 0.0004
+    - params: '^(?=.*backbone)(?=.*norm|bn).*$'
+      lr: 0.0004
+      weight_decay: 0.
+    - params: '^(?=.*(?:encoder|decoder))(?=.*(?:norm|bn|bias)).*$'
+      weight_decay: 0.
+  lr: 0.0008
+  betas: [0.9, 0.999]
+  weight_decay: 0.0001
+
+plot_train_batch_freq: 10
+
+epoches: 300  # 288 + 12
+
+## Our LR-Scheduler
+flat_epoch: 148
+no_aug_epoch: 12
+lr_gamma: 1.0
+
+## Our DataAug
+train_dataloader:
+  total_batch_size: 4
+  dataset:
+    transforms:
+      policy:
+        epoch: [4, 148, 288]   # list
+
+  collate_fn:
+    mixup_epochs: [4, 148]
+    stop_epoch: 288
+    base_size_repeat: ~
+
+val_dataloader:
+  total_batch_size: 4
