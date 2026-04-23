@@ -140,11 +140,6 @@ conda install pytorch torchvision pytorch-cuda=12.1
 
 ---
 
-## 🚀 Training
-
-python train.py --config configs/std_unidetr.yaml
-
-
 ## 📊 Main Results
 
 | Model           | Params | FLOPs | AP50–95  | AP50     |
@@ -162,7 +157,6 @@ To further validate the generalization ability of STD-UniDETR, we conduct experi
 |------------------|--------|-------|--------|------|
 | UniDETR          | 3.6M   | 6.8G  | 45.2   | 76.6 |
 | **STD-UniDETR**  | 5.5M   | 7.6G  | **50.9** | **82.2** |
-
 
 
 ## 📌 Notes
