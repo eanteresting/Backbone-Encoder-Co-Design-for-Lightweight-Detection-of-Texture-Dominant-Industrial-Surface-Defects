@@ -167,6 +167,6 @@ To further validate the generalization ability of STD-UniDETR, we conduct experi
 
 ## 📌 Notes
 
-* This repository corresponds to the manuscript submitted to *The Visual Computer*.
+* This repository corresponds to the manuscript submitted to *Pattern Analysis and Applications*.
 * The repository includes the **core implementation and training pipeline required for reproducing the reported results**.
 * Additional documentation and improvements will be released soon.
