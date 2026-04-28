@@ -1,5 +1,10 @@
 # Backbone-Encoder-Co-Design-for-Lightweight-Detection-of-Texture-Dominant-Industrial-Surface-Defects
 ----------------------------------------------------------------------------------------------------------------------------------
+## 📌 Notes
+
+* This repository corresponds to the manuscript submitted to *Pattern Analysis and Applications*.
+* The repository includes the **core implementation and training pipeline required for reproducing the reported results**.
+  
 ## Abstract
 
 This repository contains the implementation of **STD-UniDETR**, a lightweight DETR-based framework designed for defect detection under **texture-dominant conditions**.
@@ -157,10 +162,3 @@ To further validate the generalization ability of STD-UniDETR, we conduct experi
 |------------------|--------|-------|--------|------|
 | UniDETR          | 3.6M   | 6.8G  | 45.2   | 76.6 |
 | **STD-UniDETR**  | 5.5M   | 7.6G  | **50.9** | **82.2** |
-
-
-## 📌 Notes
-
-* This repository corresponds to the manuscript submitted to *Pattern Analysis and Applications*.
-* The repository includes the **core implementation and training pipeline required for reproducing the reported results**.
-* Additional documentation and improvements will be released soon.
